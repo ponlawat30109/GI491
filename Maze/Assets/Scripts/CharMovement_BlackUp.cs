@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharMovement : MonoBehaviour
+public class CharMovement_BlackUp : MonoBehaviour
 {
     [SerializeField] CharacterController characterController;
     private Vector3 gravity;
@@ -14,8 +14,6 @@ public class CharMovement : MonoBehaviour
 
     [SerializeField] float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
-    
-    Animator animator;
 
     void Awake()
     {
@@ -27,7 +25,6 @@ public class CharMovement : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -65,7 +62,6 @@ public class CharMovement : MonoBehaviour
         // Debug.Log(movement.magnitude);
         if (movement.magnitude >= 0.1f)
         {
-            
             float targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0, angle, 0);
@@ -73,14 +69,10 @@ public class CharMovement : MonoBehaviour
             Vector3 moveDir = Vector3.zero;
             if (vertical >= 0)
             {
-                animator.SetBool("Run",true);
-                animator.SetBool("Reverse",false);
                 moveDir = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
             }
             else
             {
-                animator.SetBool("Reverse",true);
-                animator.SetBool("Run",false);
                 moveDir = Quaternion.Euler(0, targetAngle, 0) * Vector3.back;
             }
 
