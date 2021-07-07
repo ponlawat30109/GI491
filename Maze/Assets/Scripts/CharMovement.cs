@@ -18,8 +18,8 @@ public class CharMovement : MonoBehaviour
     Animator animator;
 
     void Awake()
-    {
-        // characterController = GetComponent<CharacterController>();
+    { 
+        //characterController = GetComponent<CharacterController>();
         gravity = Physics.gravity;
         // playerVelocity.y = 3;
         // Debug.Log(gravity);
