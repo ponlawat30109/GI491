@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class CharMovement : MonoBehaviour
 {
-    [SerializeField] CharacterController characterController; 
+    [SerializeField] CharacterController characterController;
     //private Vector3 gravityVector3;
     private Vector3 playerVelocity;
     private Vector3 movement;
-    private Vector3 velocity;
+    // private Vector3 velocity;
     private Animator animator;
-    private float horizontal;
-    private float vertical;
+    // private float horizontal;
+    // private float vertical;
     private float gravity;
-    
+
     [SerializeField] float playerSpeed;
     [SerializeField] float jumpHeight;
 
@@ -22,9 +22,9 @@ public class CharMovement : MonoBehaviour
 
     [SerializeField] float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
-    
+
     void Awake()
-    { 
+    {
         //characterController = GetComponent<CharacterController>();
         //gravityVector3 = Physics.gravity;
         // playerVelocity.y = 3;
@@ -42,9 +42,11 @@ public class CharMovement : MonoBehaviour
 
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        // horizontal = Input.GetAxisRaw("Horizontal");
+        // vertical = Input.GetAxisRaw("Vertical");
 
+        Movement();
+        SetAnim();
         // if (!characterController.isGrounded)
         // {
         //     characterController.Move(gravity * Time.deltaTime);
@@ -66,58 +68,52 @@ public class CharMovement : MonoBehaviour
         // }
     }
 
-    private void FixedUpdate()
-    {
-        Movement();
-    }
+    // private void FixedUpdate()
+    // {
+    //     Movement();
+    // }
 
+    void SetAnim()
+    {
+        animator.SetBool("Run", false);
+        // animator.SetBool("Reverse", false);
+
+        if (movement != Vector3.zero)
+        {
+            // animator.SetBool("Reverse", true);
+            animator.SetBool("Run", true);
+        }
+
+        // if (horizontal == 0 && vertical == 0)
+        // {
+        //     animator.SetBool("Run", false);
+        //     animator.SetBool("Reverse", false);
+        // }
+        // else if (vertical < 0)
+        // {
+        //     animator.SetBool("Reverse", true);
+        //     animator.SetBool("Run", false);
+        // }
+        // else if (vertical > 0)
+        // {
+        //     animator.SetBool("Reverse", false);
+        //     animator.SetBool("Run", true);
+        // }
+        // else
+        // {
+        //     animator.SetBool("Reverse", false);
+        //     animator.SetBool("Run", true);
+        // }
+    }
     void Movement()
     {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
         movement = new Vector3(horizontal, 0, vertical).normalized;
-        
-        //movement = characterController.transform.forward * vertical;
-        
-        //characterController.transform.Rotate(Vector3.up * horizontal * (100f * Time.deltaTime));
-
-        //characterController.Move(movement * playerSpeed * Time.deltaTime);
-        
-        
-        if (characterController.isGrounded)
-        {
-            velocity.y = 0f;
-        }
-        else
-        {
-            velocity.y -= gravity * Time.deltaTime;
-        }
-        characterController.Move(velocity);
-
-        // Animation
-        if (horizontal == 0 && vertical ==0)
-        {
-            animator.SetBool("Run",false);
-            animator.SetBool("Reverse", false);
-        }
-        else if (vertical < 0)
-        {
-            animator.SetBool("Reverse", true);
-            animator.SetBool("Run", false);
-        }
-        else if (vertical > 0)
-        {
-            animator.SetBool("Reverse", false);
-            animator.SetBool("Run",true);
-        }
-        else
-        {
-            animator.SetBool("Reverse", false);
-            animator.SetBool("Run",true);
-        }
-        
         // Debug.Log(movement.magnitude);
         if (movement.magnitude >= 0.1f)
         {
-            
             float targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0, angle, 0);
@@ -129,11 +125,20 @@ public class CharMovement : MonoBehaviour
             }
             else
             {
-                //animator.SetBool("Reverse",false);
                 moveDir = Quaternion.Euler(0, targetAngle, 0) * Vector3.back;
             }
 
             characterController.Move(moveDir.normalized * Time.deltaTime * playerSpeed);
         }
+
+        // if (characterController.isGrounded)
+        // {
+        //     velocity.y = 0f;
+        // }
+        // else
+        // {
+        //     velocity.y -= gravity * Time.deltaTime;
+        // }
+        // characterController.Move(velocity);
     }
 }

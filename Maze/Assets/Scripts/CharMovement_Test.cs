@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharMovement_BlackUp : MonoBehaviour
+public class CharMovement_Test : MonoBehaviour
 {
     [SerializeField] CharacterController characterController;
     private Vector3 gravity;
