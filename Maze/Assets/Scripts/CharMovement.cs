@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharMovement_Test : MonoBehaviour
+public class CharMovement : MonoBehaviour
 {
     [SerializeField] CharacterController characterController;
     //private Vector3 gravityVector3;

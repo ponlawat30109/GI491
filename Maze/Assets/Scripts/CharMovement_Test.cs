@@ -1,45 +1,37 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharMovement : MonoBehaviour
+public class CharMovement_Test : MonoBehaviour
 {
     [SerializeField] CharacterController characterController;
-    //private Vector3 gravityVector3;
-    private Vector3 playerVelocity;
-    private Vector3 movement;
-    // private Vector3 velocity;
-    private Animator animator;
-    // private float horizontal;
-    // private float vertical;
     private Vector3 gravity;
-
+    private Vector3 playerVelocity;
     [SerializeField] float playerSpeed;
-    // [SerializeField] float jumpHeight;
+    [SerializeField] float jumpHeight;
 
     [SerializeField] Transform cam;
 
-    [HideInInspector] float turnSmoothTime = 0.1f;
+    [SerializeField] float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
 
     void Awake()
     {
+        // characterController = GetComponent<CharacterController>();
         gravity = Physics.gravity;
+        // playerVelocity.y = 3;
+        // Debug.Log(gravity);
     }
 
     void Start()
     {
-        //animator = GetComponent<Animator>();
-        animator = transform.GetChild(0).GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
         Movement();
-        SetAnim();
-        
+
         // if (!characterController.isGrounded)
         // {
         //     characterController.Move(gravity * Time.deltaTime);
@@ -61,49 +53,12 @@ public class CharMovement : MonoBehaviour
         // }
     }
 
-    // private void FixedUpdate()
-    // {
-    //     Movement();
-    // }
-
-    void SetAnim()
-    {
-        animator.SetBool("Run", false);
-        // animator.SetBool("Reverse", false);
-
-        if (movement != Vector3.zero)
-        {
-            // animator.SetBool("Reverse", true);
-            animator.SetBool("Run", true);
-        }
-
-        // if (horizontal == 0 && vertical == 0)
-        // {
-        //     animator.SetBool("Run", false);
-        //     animator.SetBool("Reverse", false);
-        // }
-        // else if (vertical < 0)
-        // {
-        //     animator.SetBool("Reverse", true);
-        //     animator.SetBool("Run", false);
-        // }
-        // else if (vertical > 0)
-        // {
-        //     animator.SetBool("Reverse", false);
-        //     animator.SetBool("Run", true);
-        // }
-        // else
-        // {
-        //     animator.SetBool("Reverse", false);
-        //     animator.SetBool("Run", true);
-        // }
-    }
     void Movement()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        movement = new Vector3(horizontal, 0, vertical).normalized;
+        Vector3 movement = new Vector3(horizontal, 0, vertical).normalized;
         // Debug.Log(movement.magnitude);
         if (movement.magnitude >= 0.1f)
         {
@@ -123,15 +78,5 @@ public class CharMovement : MonoBehaviour
 
             characterController.Move(moveDir.normalized * Time.deltaTime * playerSpeed);
         }
-
-        // if (characterController.isGrounded)
-        // {
-        //     velocity.y = 0f;
-        // }
-        // else
-        // {
-        //     velocity.y -= gravity * Time.deltaTime;
-        // }
-        // characterController.Move(velocity);
     }
 }
