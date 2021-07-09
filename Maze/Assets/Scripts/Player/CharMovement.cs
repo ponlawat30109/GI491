@@ -26,6 +26,7 @@ public class CharMovement : MonoBehaviour
     void Awake()
     {
         gravity = Physics.gravity;
+        cam = Camera.main.transform;
     }
 
     void Start()
