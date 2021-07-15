@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     [SerializeField] Text playerSelect;
-    [SerializeField] string playerSelectName;
+    [SerializeField] public string playerSelectName;
     [SerializeField] List<Button> playerButtonList = new List<Button>();
     [SerializeField] Button playButton;
 
@@ -19,16 +19,23 @@ public class UIManager : MonoBehaviour
 
         foreach (var playerOrder in playerButtonList)
         {
-            playerOrder.onClick.AddListener(delegate{SelectPlayer(playerOrder);});
+            playerOrder.onClick.AddListener(delegate { SelectPlayer(playerOrder); });
         }
 
-        playButton.onClick.AddListener(delegate{SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);});
+        playButton.onClick.AddListener(PlayerButton);
     }
 
     void SelectPlayer(Button playerSelectButton)
     {
         playerSelectName = playerSelectButton.GetComponentInChildren<Text>().text;
+        
         playerSelect.text = $"Select : {playerSelectName}";
         Debug.Log(playerSelectName);
+    }
+
+    void PlayerButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // GameManager.instance.playerName = playerSelectName;
     }
 }
