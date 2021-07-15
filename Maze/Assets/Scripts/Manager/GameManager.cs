@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-
-
-        //TO DO Later
-
+    // [SerializeField] GameObject player;
+    
 }
