@@ -7,19 +7,26 @@ public class CharMovement : MonoBehaviour
 {
     [SerializeField] CharacterController characterController;
     //private Vector3 gravityVector3;
+
     private Vector3 playerVelocity;
     private Vector3 movement;
     // private Vector3 velocity;
     private Animator animator;
     // private float horizontal;
     // private float vertical;
+
     private Vector3 gravity;
 
     [SerializeField] float playerSpeed;
+    [SerializeField] bool isRunning = false;
+    private float runningSpeed;
+    private float defaultSpeed;
     // [SerializeField] float jumpHeight;
 
-    [SerializeField] Transform cam;
+    [SerializeField] float staminaPoint = 100;
+    [SerializeField] float maxStaminaPoint;
 
+    [HideInInspector] Transform cam;
     [HideInInspector] float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
 
@@ -27,6 +34,10 @@ public class CharMovement : MonoBehaviour
     {
         gravity = Physics.gravity;
         cam = Camera.main.transform;
+
+        defaultSpeed = playerSpeed;
+        runningSpeed = playerSpeed * 2;
+        maxStaminaPoint = staminaPoint;
     }
 
     void Start()
@@ -38,9 +49,11 @@ public class CharMovement : MonoBehaviour
 
     void Update()
     {
+        SprintCheck();
+        SprintUsingStamina();
         Movement();
         SetAnim();
-        
+
         // if (!characterController.isGrounded)
         // {
         //     characterController.Move(gravity * Time.deltaTime);
@@ -66,6 +79,58 @@ public class CharMovement : MonoBehaviour
     // {
     //     Movement();
     // }
+
+    void SprintCheck()
+    {
+        // tempSpeed = playerSpeed;
+        if (Input.GetKeyDown(KeyCode.LeftShift) && staminaPoint > 10)
+        {
+            isRunning = true;
+        }
+        // else
+        // {
+        //     isRunning = false;
+        // }
+
+        if(staminaPoint <= 10){
+            isRunning = false;
+        }
+    }
+
+    void SprintUsingStamina()
+    {
+        if (isRunning && movement != Vector3.zero)
+        {
+            playerSpeed = runningSpeed;
+            staminaPoint -= (10 * Time.deltaTime);
+        }
+        // else if (!isRunning && movement != Vector3.zero)
+        // {
+        //     playerSpeed = defaultSpeed;
+        //     RegenStamina();
+        // }
+        else
+        {
+            playerSpeed = defaultSpeed;
+            RegenStamina();
+        }
+    }
+
+    void RegenStamina()
+    {
+        if (!isRunning)
+        {
+            if (staminaPoint < maxStaminaPoint)
+            {
+                staminaPoint += (10 * Time.deltaTime);
+            }
+            else
+            {
+                staminaPoint = maxStaminaPoint;
+            }
+        }
+
+    }
 
     void SetAnim()
     {
