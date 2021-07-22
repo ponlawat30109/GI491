@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2280526266315395530}
   m_Layer: 0
-  m_Name: electric
+  m_Name: Tesla
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item_002 : MonoBehaviour //Medkit
+public class Item_003 : MonoBehaviour //Checkpoint
 {
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("You got 1 MedKit");
+            Debug.Log("You got Checkpoint Item");
             if (PlayerStatus.instance != null)
             {
-                PlayerStatus.instance.medKit += 1;
+                PlayerStatus.instance.checkPointItem = true;
             }
 
             Destroy(gameObject);

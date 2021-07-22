@@ -2,19 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item_002 : MonoBehaviour //Medkit
+public class Item_004 : MonoBehaviour //ThornTrap
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("You got 1 MedKit");
+            Debug.Log("ThornTrap");
             if (PlayerStatus.instance != null)
             {
-                PlayerStatus.instance.medKit += 1;
+                PlayerStatus.instance.hp -= 5 * Time.deltaTime;
             }
-
-            Destroy(gameObject);
         }
     }
 }
