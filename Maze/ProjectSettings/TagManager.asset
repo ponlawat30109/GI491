@@ -9,6 +9,7 @@ TagManager:
   - Key
   - MedKit
   - Trap
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

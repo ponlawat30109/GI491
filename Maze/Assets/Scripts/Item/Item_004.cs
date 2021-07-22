@@ -11,7 +11,7 @@ public class Item_004 : MonoBehaviour //ThornTrap
             Debug.Log("ThornTrap");
             if (PlayerStatus.instance != null)
             {
-                PlayerStatus.instance.hp -= 5 * Time.deltaTime;
+                PlayerStatus.instance.hp -= (PlayerStatus.instance.maxHP/20) * Time.deltaTime;
             }
         }
     }

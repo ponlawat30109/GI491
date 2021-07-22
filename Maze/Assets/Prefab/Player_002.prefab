@@ -61,7 +61,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5002433237647328739}
-  m_LocalRotation: {x: 0.049635995, y: 0.1978855, z: -0.010033798, w: 0.9789162}
+  m_LocalRotation: {x: 0.05063989, y: 0.0024230718, z: -0.00012286208, w: 0.998714}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -189,7 +189,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 22.573465
+    Value: 0
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -315,7 +315,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 22.573465
+    Value: 0
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -409,6 +409,7 @@ GameObject:
   - component: {fileID: 5002433238038251385}
   - component: {fileID: 5002433238038251387}
   - component: {fileID: 5002433238038251384}
+  - component: {fileID: 3470822818643178282}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -465,9 +466,24 @@ MonoBehaviour:
   keyItem: 0
   medKit: 0
   checkPointItem: 0
-  deployCheckpointTimer: 2
+  isOnGate: 0
+  isCheckpoint: 0
+--- !u!114 &3470822818643178282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5002433238038251390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ebf976054f5f51478e96d5f00af6633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deployCheckpointTimer: 3
   checkpointItemObject: {fileID: 441233044451407045, guid: 60bffb78732003145ba5f75b9029839e, type: 3}
   checkpointSpawnpoint: {fileID: 7875806725418995342}
+  checkpointPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &5002433238200745657
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5002433238466809587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1290699, y: 1.78586, z: -2.7159607}
+  m_LocalPosition: {x: 0, y: 1.78586, z: -2.9412992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5002433238538515282}
@@ -595,7 +611,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 22.573465
+    Value: 0
     m_SpeedMode: 0
     m_MaxSpeed: 150
     m_AccelTime: 0.1
@@ -690,7 +706,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5002433238538515280}
-  m_LocalRotation: {x: 0.2642525, y: 0.18847948, z: -0.052739237, w: 0.9443859}
+  m_LocalRotation: {x: 0.26946396, y: -0.000000016569924, z: 0.000000004636499, w: 0.9630105}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -892,7 +908,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 22.573465
+    Value: 0
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1

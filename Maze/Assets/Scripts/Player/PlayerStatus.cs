@@ -11,42 +11,44 @@ public class PlayerStatus : MonoBehaviour
     public int keyItem = 0;
     public int medKit = 0;
     public bool checkPointItem = false;
+    public bool isOnGate = false;
+    public bool isCheckpoint = false;
 
-    public float deployCheckpointTimer = 1;
-    [SerializeField] GameObject checkpointItemObject;
-    [SerializeField] Transform checkpointSpawnpoint;
+    // public float deployCheckpointTimer = 1;
+    // [SerializeField] GameObject checkpointItemObject;
+    // [SerializeField] Transform checkpointSpawnpoint;
 
     void Awake()
     {
         instance = this;
     }
 
-    void FixedUpdate()
-    {
-        // DeployCheckpoint();
-    }
+    // void FixedUpdate()
+    // {
+    //     DeployCheckpoint();
+    // }
 
     void Update()
     {
         HealthCheck();
-        UseItem();
-        DeployCheckpoint();
+        // UseItem();
+        // DeployCheckpoint();
     }
 
-    void UseItem()
-    {
-        if (Input.GetKey(KeyCode.Alpha1))
-        {
-            if (hp < maxHP)
-            {
-                if (medKit > 0)
-                {
-                    hp += 50;
-                    medKit -= 1;
-                }
-            }
-        }
-    }
+    // void UseItem()
+    // {
+    //     if (Input.GetKey(KeyCode.Alpha1))
+    //     {
+    //         if (hp < maxHP)
+    //         {
+    //             if (medKit > 0)
+    //             {
+    //                 hp += 50;
+    //                 medKit -= 1;
+    //             }
+    //         }
+    //     }
+    // }
 
     void HealthCheck()
     {
@@ -56,31 +58,31 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    void DeployCheckpoint()
-    {
-        if (checkPointItem)
-        {
-            if (Input.GetKey(KeyCode.Q))
-            {
-                deployCheckpointTimer -= Time.deltaTime;
-                Debug.Log($"Deploy check point in {deployCheckpointTimer}");
-                if (deployCheckpointTimer <= 0)
-                {
-                    // Debug.Log(true);
-                    if (checkPointItem == true)
-                    {
-                        // Debug.Log(true);
-                        Instantiate(checkpointItemObject, checkpointSpawnpoint.position, Quaternion.identity);
-                        checkPointItem = false;
-                        deployCheckpointTimer = 1;
-                    }
-                }
-            }
+    // void DeployCheckpoint()
+    // {
+    //     if (checkPointItem)
+    //     {
+    //         if (Input.GetKey(KeyCode.Q))
+    //         {
+    //             deployCheckpointTimer -= Time.deltaTime;
+    //             Debug.Log($"Deploy check point in {deployCheckpointTimer}");
+    //             if (deployCheckpointTimer <= 0)
+    //             {
+    //                 // Debug.Log(true);
+    //                 if (checkPointItem == true)
+    //                 {
+    //                     // Debug.Log(true);
+    //                     Instantiate(checkpointItemObject, checkpointSpawnpoint.position, Quaternion.identity);
+    //                     checkPointItem = false;
+    //                     deployCheckpointTimer = 1;
+    //                 }
+    //             }
+    //         }
 
-            if (Input.GetKeyUp(KeyCode.Q))
-            {
-                deployCheckpointTimer = 1;
-            }
-        }
-    }
+    //         if (Input.GetKeyUp(KeyCode.Q))
+    //         {
+    //             deployCheckpointTimer = 1;
+    //         }
+    //     }
+    // }
 }
