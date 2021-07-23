@@ -6,12 +6,12 @@ public class PlayerAction : MonoBehaviour
 {
     PlayerStatus playerStat;
 
-    public float deployCheckpointTimer = 3;
+    public float deployCheckpointTimer = 2;
     [SerializeField] GameObject checkpointItemObject;
     [SerializeField] Transform checkpointSpawnpoint;
 
     public Vector3 checkpointPosition = new Vector3(0, 0, 0);
-    private float ReturnToCheckpointTimer = 3;
+    private float ReturnToCheckpointTimer = 2;
 
     void Start()
     {
@@ -22,6 +22,7 @@ public class PlayerAction : MonoBehaviour
     void Update()
     {
         UseItem();
+        ReturnToCheckpoint();
         DeployCheckpoint();
     }
 
@@ -48,25 +49,25 @@ public class PlayerAction : MonoBehaviour
             {
                 deployCheckpointTimer -= Time.deltaTime;
                 Debug.Log($"Deploy check point in {deployCheckpointTimer}");
-                // if (deployCheckpointTimer <= 0)
+                if (deployCheckpointTimer <= 0)
                 // {
                 // Debug.Log(true);
-                if (playerStat.checkPointItem == true)
+                // if (playerStat.checkPointItem == true)
                 {
                     // Debug.Log(true);
-                    Instantiate(checkpointItemObject, checkpointSpawnpoint.position, Quaternion.identity);
+                    var _checkpoint = Instantiate(checkpointItemObject, checkpointSpawnpoint.position, Quaternion.identity);
                     playerStat.checkPointItem = false;
                     playerStat.isCheckpoint = true;
-                    deployCheckpointTimer = 3;
+                    deployCheckpointTimer = 2;
 
-                    checkpointPosition = checkpointSpawnpoint.position;
+                    checkpointPosition = _checkpoint.transform.position;
                 }
                 // }
             }
 
             if (Input.GetKeyUp(KeyCode.Q))
             {
-                deployCheckpointTimer = 3;
+                deployCheckpointTimer = 2;
             }
         }
     }
@@ -81,7 +82,13 @@ public class PlayerAction : MonoBehaviour
                 if (ReturnToCheckpointTimer <= 0)
                 {
                     this.gameObject.transform.position = checkpointPosition;
+                    ReturnToCheckpointTimer = 2;
                 }
+            }
+
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                ReturnToCheckpointTimer = 3;
             }
         }
     }
