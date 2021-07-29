@@ -347,6 +347,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8413192224379741266, guid: 685530c7c3df981478d506f788eaace8, type: 3}
+      propertyPath: lengthInSec
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413192224379741266, guid: 685530c7c3df981478d506f788eaace8, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413192224379741266, guid: 685530c7c3df981478d506f788eaace8, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413192224379741266, guid: 685530c7c3df981478d506f788eaace8, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413192224379741266, guid: 685530c7c3df981478d506f788eaace8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413192224379741266, guid: 685530c7c3df981478d506f788eaace8, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime0
       value: 386
       objectReference: {fileID: 0}
