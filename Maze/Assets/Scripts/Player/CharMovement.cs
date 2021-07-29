@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CharMovement : MonoBehaviour
 {
+    public static CharMovement instance;
+
     [SerializeField] CharacterController characterController;
     //private Vector3 gravityVector3;
 
@@ -23,8 +25,8 @@ public class CharMovement : MonoBehaviour
     private float defaultSpeed;
     // [SerializeField] float jumpHeight;
 
-    [SerializeField] float staminaPoint = 100;
-    [SerializeField] float maxStaminaPoint;
+    public float staminaPoint = 100;
+    public float maxStaminaPoint;
 
     [HideInInspector] Transform cam;
     [HideInInspector] float turnSmoothTime = 0.1f;
@@ -32,6 +34,8 @@ public class CharMovement : MonoBehaviour
 
     void Awake()
     {
+        instance = this;
+
         gravity = Physics.gravity;
         cam = Camera.main.transform;
 
@@ -92,7 +96,8 @@ public class CharMovement : MonoBehaviour
         //     isRunning = false;
         // }
 
-        if(Input.GetKeyUp(KeyCode.LeftShift) || staminaPoint <= 10){
+        if (Input.GetKeyUp(KeyCode.LeftShift) || staminaPoint <= 10)
+        {
             isRunning = false;
         }
     }

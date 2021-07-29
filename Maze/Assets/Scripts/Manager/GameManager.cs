@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private bool isPlayerExist = false;
     // private PlayerStatus playerStat;
 
-    [SerializeField] int keyItemCount;
+    public int keyItemCount;
 
     void Awake()
     {
