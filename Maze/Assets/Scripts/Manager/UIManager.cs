@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public string playerSelectName;
     [SerializeField] List<Button> playerButtonList = new List<Button>();
     [SerializeField] Button playButton;
+    [SerializeField] Image[] charImg;
 
     void Awake()
     {
@@ -19,23 +20,31 @@ public class UIManager : MonoBehaviour
 
         foreach (var playerOrder in playerButtonList)
         {
-            playerOrder.onClick.AddListener(delegate { SelectPlayer(playerOrder); });
+            playerOrder.onClick.AddListener(delegate { SelectCharacter(playerOrder); });
         }
 
-        playButton.onClick.AddListener(PlayerButton);
+        playButton.onClick.AddListener(PlayButton);
     }
 
-    void SelectPlayer(Button playerSelectButton)
+    void SelectCharacter(Button playerSelectButton)
     {
         playerSelectName = playerSelectButton.GetComponentInChildren<Text>().text;
-        
+
         playerSelect.text = $"Select : {playerSelectName}";
+
+        // charImg[i].gameObject.SetActive(true);
+
         Debug.Log(playerSelectName);
     }
 
-    void PlayerButton()
+    void PlayButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         // GameManager.instance.playerName = playerSelectName;
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

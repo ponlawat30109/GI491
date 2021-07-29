@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] List<GameObject> playerList = new List<GameObject>();
 
     private GameObject player;
-    [SerializeField] Transform spawnpoint;
+    [SerializeField] public Transform spawnpoint;
     [SerializeField] string playerName;
     private bool isPlayerExist = false;
     // private PlayerStatus playerStat;
@@ -27,7 +27,9 @@ public class GameManager : MonoBehaviour
     {
         playerName = CharacterManager.instance.playerName;
 
-        SpawnPlayer(spawnpoint.position);
+        SpawnPlayer(spawnpoint);
+        var keyCout = GameObject.FindGameObjectsWithTag("Key");
+        keyItemCount = keyCout.Length;
     }
 
     void Update()
@@ -35,25 +37,40 @@ public class GameManager : MonoBehaviour
         // SpawnPlayer();
         HPCheck();
         KeyItemCheck();
+
         // DeployCheckpoint();
     }
 
-    void SpawnPlayer(Vector3 spawnPosition)
+    void SpawnPlayer(Transform spawnPosition)
     {
         // playerName = CharacterManager.instance.playerName;
         if (!isPlayerExist)
         {
-            if (playerName == "TuuTuu")
+            // if (playerName == "TuuTuu")
+            // {
+            //     // playerList[0].SetActive(true);
+            //     player = (GameObject)Instantiate(playerList[0], spawnPosition, Quaternion.identity);
+            //     isPlayerExist = true;
+            // }
+            // else if (playerName == "PomPom")
+            // {
+            //     // playerList[1].SetActive(true);
+            //     player = (GameObject)Instantiate(playerList[1], spawnPosition, Quaternion.identity);
+            //     isPlayerExist = true;
+            // }
+
+            switch (playerName)
             {
-                // playerList[0].SetActive(true);
-                player = (GameObject)Instantiate(playerList[0], spawnPosition, Quaternion.identity);
-                isPlayerExist = true;
-            }
-            else if (playerName == "PomPom")
-            {
-                // playerList[1].SetActive(true);
-                player = (GameObject)Instantiate(playerList[1], spawnPosition, Quaternion.identity);
-                isPlayerExist = true;
+                case "TuuTuu":
+                    player = (GameObject)Instantiate(playerList[0], spawnPosition.position, Quaternion.identity);
+                    isPlayerExist = true;
+                    break;
+                case "PomPom":
+                    player = (GameObject)Instantiate(playerList[1], spawnPosition.position, Quaternion.identity);
+                    isPlayerExist = true;
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -87,7 +104,7 @@ public class GameManager : MonoBehaviour
                 // player.transform.position = (player.GetComponentInChildren<PlayerAction>().checkpointPosition);
                 if (!player.GetComponentInChildren<PlayerStatus>().isCheckpoint)
                 {
-                    SpawnPlayer(spawnpoint.position);
+                    SpawnPlayer(spawnpoint);
                 }
                 else
                 {
@@ -101,7 +118,7 @@ public class GameManager : MonoBehaviour
     // {
     //     if (player.GetComponentInChildren<PlayerStatus>().isCheckpoint)
     //     {
-
+    //         // spawnpoint.position = 
     //     }
     // }
 

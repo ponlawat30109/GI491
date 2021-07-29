@@ -43,7 +43,7 @@ public class CharMovement : MonoBehaviour
     void Start()
     {
         //animator = GetComponent<Animator>();
-        animator = transform.GetChild(0).GetComponent<Animator>();
+        animator = transform.GetChild(1).GetChild(0).GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -92,7 +92,7 @@ public class CharMovement : MonoBehaviour
         //     isRunning = false;
         // }
 
-        if(staminaPoint <= 10){
+        if(Input.GetKeyUp(KeyCode.LeftShift) || staminaPoint <= 10){
             isRunning = false;
         }
     }

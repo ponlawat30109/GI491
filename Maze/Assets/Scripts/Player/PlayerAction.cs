@@ -10,12 +10,14 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] GameObject checkpointItemObject;
     [SerializeField] Transform checkpointSpawnpoint;
 
-    public Vector3 checkpointPosition = new Vector3(0, 0, 0);
+    public Transform checkpointPosition;
     private float ReturnToCheckpointTimer = 2;
 
     void Start()
     {
         playerStat = PlayerStatus.instance;
+
+        checkpointPosition = GameManager.instance.spawnpoint;
     }
 
     // Update is called once per frame
@@ -24,6 +26,8 @@ public class PlayerAction : MonoBehaviour
         UseItem();
         ReturnToCheckpoint();
         DeployCheckpoint();
+
+        // Debug.Log(gameObject.transform.GetChild(0).localPosition);
     }
 
     void UseItem()
@@ -50,19 +54,15 @@ public class PlayerAction : MonoBehaviour
                 deployCheckpointTimer -= Time.deltaTime;
                 Debug.Log($"Deploy check point in {deployCheckpointTimer}");
                 if (deployCheckpointTimer <= 0)
-                // {
-                // Debug.Log(true);
-                // if (playerStat.checkPointItem == true)
                 {
-                    // Debug.Log(true);
-                    var _checkpoint = Instantiate(checkpointItemObject, checkpointSpawnpoint.position, Quaternion.identity);
+                    var _checkpoint = (GameObject)Instantiate(checkpointItemObject, checkpointSpawnpoint.position, checkpointSpawnpoint.rotation);
                     playerStat.checkPointItem = false;
                     playerStat.isCheckpoint = true;
                     deployCheckpointTimer = 2;
 
-                    checkpointPosition = _checkpoint.transform.position;
+                    checkpointPosition.position = gameObject.transform.position;
+                    Debug.Log(checkpointPosition.position);
                 }
-                // }
             }
 
             if (Input.GetKeyUp(KeyCode.Q))
@@ -81,7 +81,7 @@ public class PlayerAction : MonoBehaviour
                 ReturnToCheckpointTimer -= Time.deltaTime;
                 if (ReturnToCheckpointTimer <= 0)
                 {
-                    this.gameObject.transform.position = checkpointPosition;
+                    this.gameObject.transform.position = checkpointPosition.position;
                     ReturnToCheckpointTimer = 2;
                 }
             }
