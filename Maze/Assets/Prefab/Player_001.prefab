@@ -146,8 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 200
   maxHP: 200
-  keyItem: 0
-  medKit: 0
+  medKit: 1
   checkPointItem: 0
   isOnGate: 0
   isCheckpoint: 0

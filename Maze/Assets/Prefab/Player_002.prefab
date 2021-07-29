@@ -459,10 +459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd98dec4db54804c875cf8ca859973a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  maxHP: 100
-  keyItem: 0
-  medKit: 0
+  hp: 120
+  maxHP: 120
+  medKit: 1
   checkPointItem: 0
   isOnGate: 0
   isCheckpoint: 0
