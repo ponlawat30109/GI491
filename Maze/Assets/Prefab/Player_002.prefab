@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 6641232696406263179}
-  playerSpeed: 10
+  playerSpeed: 8
   isRunning: 0
   staminaPoint: 100
   maxStaminaPoint: 0

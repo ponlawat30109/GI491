@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    [SerializeField] Text playerSelect;
+    [SerializeField] TextMeshProUGUI playerSelect;
     [SerializeField] public string playerSelectName;
     [SerializeField] List<Button> playerButtonList = new List<Button>();
     [SerializeField] Button playButton;
@@ -28,7 +29,7 @@ public class UIManager : MonoBehaviour
 
     void SelectCharacter(Button playerSelectButton)
     {
-        playerSelectName = playerSelectButton.GetComponentInChildren<Text>().text;
+        playerSelectName = playerSelectButton.GetComponentInChildren<TextMeshProUGUI>().text;
 
         playerSelect.text = $"Select : {playerSelectName}";
 
@@ -39,7 +40,8 @@ public class UIManager : MonoBehaviour
 
     void PlayButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (!string.IsNullOrEmpty(playerSelectName))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         // GameManager.instance.playerName = playerSelectName;
     }
 
