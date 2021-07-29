@@ -35,7 +35,7 @@ public class Item_005 : MonoBehaviour //explosiveTrap
 
             if (PlayerStatus.instance != null)
             {
-                PlayerStatus.instance.hp -= (PlayerStatus.instance.hp/2);
+                PlayerStatus.instance.hp -= 50;
             }
 
             foreach (var part in explosivePart)
