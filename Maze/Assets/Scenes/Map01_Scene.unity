@@ -3220,6 +3220,83 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9177639143534485487, guid: 6eb9c2ff13e4c294782595b995838b54, type: 3}
   m_PrefabInstance: {fileID: 859537495}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &930931500
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4019548608130180118, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019548608130180118, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019548608130180118, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019548608130180118, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019548608130180118, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019548608130180118, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 39.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019548608130180118, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019548608130180118, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019548608130180118, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019548608130180118, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019548608130180118, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019548608130180118, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019548608130180118, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019548608130180118, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360503159294246572, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_Name
+      value: floor01Type2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360503159294246572, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360503159294246572, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7cc0a160068b95d4184888f22d747340, type: 3}
 --- !u!1001 &945077166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3754,7 +3831,7 @@ Light:
   m_GameObject: {fileID: 1153307038}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 1
+  m_Type: 3
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
@@ -3796,7 +3873,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
