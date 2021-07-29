@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item_001 : MonoBehaviour //File
 {
+    public AudioClip soundFile;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")

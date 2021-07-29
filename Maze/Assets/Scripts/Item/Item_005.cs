@@ -11,7 +11,7 @@ public class Item_005 : MonoBehaviour //explosiveTrap
     [SerializeField] float force = 10f;
 
     public bool isActive = false;
-
+    
     // void Update()
     // {
     //     if (isActive)
@@ -57,6 +57,10 @@ public class Item_005 : MonoBehaviour //explosiveTrap
             particleFX.SetActive(true);
             // Destroy(this.gameObject, 2);
 
+            AudioSource audioSource = GetComponent<AudioSource>();
+            audioSource.Play();
+
+            gameObject.GetComponent<SphereCollider>().enabled = false;
             StartCoroutine(DelaySpawn());
         }
     }
@@ -85,5 +89,6 @@ public class Item_005 : MonoBehaviour //explosiveTrap
             part.SetActive(true);
         }
         // gameObject.SetActive(true);
+        gameObject.GetComponent<SphereCollider>().enabled = true;
     }
 }
