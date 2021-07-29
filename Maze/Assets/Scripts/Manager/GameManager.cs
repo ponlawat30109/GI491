@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         // DontDestroyOnLoad(this);
+        Time.timeScale = 1;
     }
 
     void Start()

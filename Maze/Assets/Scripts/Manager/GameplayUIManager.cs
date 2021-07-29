@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameplayUIManager : MonoBehaviour
 {
     public static GameplayUIManager instance;
+
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] Button resumeButton;
+    [SerializeField] Button quitButton;
 
     [SerializeField] GameObject medkitItem;
     [SerializeField] GameObject keyItem;
@@ -17,6 +22,7 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] GameObject charPom;
     [SerializeField] Image hpBar;
     [SerializeField] Image staminaBar;
+
     private float currentHP;
     private float maxHP;
     private float currentStamina;
@@ -28,6 +34,9 @@ public class GameplayUIManager : MonoBehaviour
 
         charTuu.SetActive(false);
         charPom.SetActive(false);
+
+        resumeButton.onClick.AddListener(Resume);
+        quitButton.onClick.AddListener(Quit);
     }
 
     // Update is called once per frame
@@ -36,6 +45,7 @@ public class GameplayUIManager : MonoBehaviour
         ItemCountCheck();
         CharProfileImg();
         StatusBarUpdate();
+        PauseCheck();
     }
 
     void StatusBarUpdate()
@@ -49,10 +59,15 @@ public class GameplayUIManager : MonoBehaviour
         staminaBar.fillAmount = currentStamina / maxStamina;
     }
 
-    // void UseCheckpoint()
-    // {
-
-    // }
+    void PauseCheck()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
 
     void CharProfileImg()
     {
@@ -98,6 +113,18 @@ public class GameplayUIManager : MonoBehaviour
             checkpointItem.SetActive(true);
             checkpointItemText.text = $"Checkpoint";
         }
+    }
 
+    void Resume()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void Quit()
+    {
+        // Application.Quit();
+        SceneManager.LoadScene(0);
     }
 }
