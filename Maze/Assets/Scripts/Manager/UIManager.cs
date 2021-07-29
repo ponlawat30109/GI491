@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
+    [SerializeField] GameObject introMenu;
+    [SerializeField] GameObject mainMenu;
+
     [SerializeField] TextMeshProUGUI playerSelect;
     [SerializeField] public string playerSelectName;
     [SerializeField] List<Button> playerButtonList = new List<Button>();
@@ -25,6 +28,15 @@ public class UIManager : MonoBehaviour
         }
 
         playButton.onClick.AddListener(PlayButton);
+    }
+
+    void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            mainMenu.SetActive(true);
+            introMenu.SetActive(false);
+        }
     }
 
     void SelectCharacter(Button playerSelectButton)

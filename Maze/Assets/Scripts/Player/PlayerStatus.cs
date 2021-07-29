@@ -8,7 +8,7 @@ public class PlayerStatus : MonoBehaviour
 
     public float hp = 50;
     public float maxHP = 100;
-    public int keyItem = 0;
+    // public int keyItem = 0;
     public int medKit = 0;
     public bool checkPointItem = false;
     public bool isOnGate = false;

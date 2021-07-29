@@ -11,7 +11,7 @@ public class Item_001 : MonoBehaviour //File
             Debug.Log("You got 1 File");
             if (PlayerStatus.instance != null)
             {
-                PlayerStatus.instance.keyItem += 1;
+                GameManager.instance.currentKeyItem += 1;
             }
 
             Destroy(gameObject);

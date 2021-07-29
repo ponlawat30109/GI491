@@ -10,6 +10,16 @@ public class Item_005 : MonoBehaviour //explosiveTrap
     [SerializeField] float radius = 2f;
     [SerializeField] float force = 10f;
 
+    public bool isActive = false;
+
+    // void Update()
+    // {
+    //     if (isActive)
+    //     {
+    //         StartCoroutine(DelaySpawn());
+    //     }
+    // }
+
     void Explode()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
@@ -29,6 +39,7 @@ public class Item_005 : MonoBehaviour //explosiveTrap
     {
         if (other.gameObject.tag == "Player")
         {
+            isActive = true;
             Debug.Log("Explosive");
 
             // Explode();
@@ -44,7 +55,35 @@ public class Item_005 : MonoBehaviour //explosiveTrap
             }
 
             particleFX.SetActive(true);
-            Destroy(this.gameObject, 2);
+            // Destroy(this.gameObject, 2);
+
+            StartCoroutine(DelaySpawn());
         }
+    }
+
+    // IEnumerator DelaySetActive()
+    // {
+    //     yield return new WaitForSeconds(2);
+    //     isActive = true;
+    //     // gameObject.SetActive(false);
+    // }
+
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if (other.gameObject.tag == "Player")
+    //     {
+    //         isActive = false;
+    //         StartCoroutine(DelaySpawn());
+    //     }
+    // }
+
+    IEnumerator DelaySpawn()
+    {
+        yield return new WaitForSeconds(30);
+        foreach (var part in explosivePart)
+        {
+            part.SetActive(true);
+        }
+        // gameObject.SetActive(true);
     }
 }

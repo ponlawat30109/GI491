@@ -9,8 +9,10 @@ public class GameplayUIManager : MonoBehaviour
 
     [SerializeField] GameObject medkitItem;
     [SerializeField] GameObject keyItem;
+    [SerializeField] GameObject checkpointItem;
     [SerializeField] Text medkitItemText;
     [SerializeField] Text keyItemText;
+    [SerializeField] Text checkpointItemText;
     [SerializeField] GameObject charTuu;
     [SerializeField] GameObject charPom;
     [SerializeField] Image hpBar;
@@ -43,9 +45,14 @@ public class GameplayUIManager : MonoBehaviour
         maxHP = PlayerStatus.instance.maxHP;
         maxStamina = CharMovement.instance.maxStaminaPoint;
 
-        hpBar.fillAmount = currentHP/maxHP;
-        staminaBar.fillAmount = currentStamina/maxStamina;
+        hpBar.fillAmount = currentHP / maxHP;
+        staminaBar.fillAmount = currentStamina / maxStamina;
     }
+
+    // void UseCheckpoint()
+    // {
+
+    // }
 
     void CharProfileImg()
     {
@@ -62,14 +69,13 @@ public class GameplayUIManager : MonoBehaviour
 
     void ItemCountCheck()
     {
-        if (PlayerStatus.instance.keyItem < 1)
-            keyItem.SetActive(false);
-        else
-        {
-            keyItem.SetActive(true);
-            keyItemText.text = $"{PlayerStatus.instance.keyItem}/{GameManager.instance.keyItemCount}";
-        }
-
+        // if (PlayerStatus.instance.keyItem < 1)
+        //     keyItem.SetActive(false);
+        // else
+        // {
+        keyItem.SetActive(true);
+        keyItemText.text = $"{GameManager.instance.currentKeyItem}/{GameManager.instance.keyItemCount}";
+        // }
 
         if (PlayerStatus.instance.medKit < 1)
             medkitItem.SetActive(false);
@@ -78,5 +84,20 @@ public class GameplayUIManager : MonoBehaviour
             medkitItem.SetActive(true);
             medkitItemText.text = $"{PlayerStatus.instance.medKit}";
         }
+
+        if (!PlayerStatus.instance.checkPointItem && !PlayerStatus.instance.isCheckpoint)
+            checkpointItem.SetActive(false);
+        else
+        {
+            checkpointItem.SetActive(true);
+            checkpointItemText.text = $"Deploy";
+        }
+
+        if (PlayerStatus.instance.isCheckpoint)
+        {
+            checkpointItem.SetActive(true);
+            checkpointItemText.text = $"Checkpoint";
+        }
+
     }
 }

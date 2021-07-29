@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     // private PlayerStatus playerStat;
 
     public int keyItemCount;
+    public int currentKeyItem;
 
     void Awake()
     {
@@ -80,7 +81,7 @@ public class GameManager : MonoBehaviour
         // player.GetComponent
         if (player != null)
         {
-            if (player.GetComponentInChildren<PlayerStatus>().keyItem >= keyItemCount)
+            if (currentKeyItem >= keyItemCount)
             {
                 if (player.GetComponentInChildren<PlayerStatus>().isOnGate)
                 {
@@ -89,7 +90,6 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
     }
 
     void HPCheck()

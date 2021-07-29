@@ -82,6 +82,7 @@ public class PlayerAction : MonoBehaviour
                 if (ReturnToCheckpointTimer <= 0)
                 {
                     this.gameObject.transform.position = checkpointPosition.position;
+                    playerStat.isCheckpoint = false;
                     ReturnToCheckpointTimer = 2;
                 }
             }
