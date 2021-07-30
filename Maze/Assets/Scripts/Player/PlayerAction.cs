@@ -12,7 +12,10 @@ public class PlayerAction : MonoBehaviour
 
     public Transform checkpointPosition;
     private float ReturnToCheckpointTimer = 2;
-
+    
+    public AudioSource _audioSource;
+    public AudioClip soundGetCheckpoint;
+    public AudioClip soundDownCheckpoint;
     void Start()
     {
         playerStat = PlayerStatus.instance;
@@ -61,6 +64,7 @@ public class PlayerAction : MonoBehaviour
                     deployCheckpointTimer = 2;
 
                     checkpointPosition.position = gameObject.transform.position;
+                    _audioSource.PlayOneShot(soundGetCheckpoint); //Sound
                     Debug.Log(checkpointPosition.position);
                 }
             }
@@ -84,6 +88,7 @@ public class PlayerAction : MonoBehaviour
                     this.gameObject.transform.position = checkpointPosition.position;
                     playerStat.isCheckpoint = false;
                     ReturnToCheckpointTimer = 2;
+                    _audioSource.PlayOneShot(soundDownCheckpoint); //Sound
                 }
             }
 

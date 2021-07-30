@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a31c8e78d5636489cc2f1395d6a30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundThornTrap: {fileID: 0}
 --- !u!65 &6197177244879438091
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class PlayerStatus : MonoBehaviour
     public bool isOnGate = false;
     public bool isCheckpoint = false;
 
+    public AudioSource _audioSource; //Sound
+    
     // public float deployCheckpointTimer = 1;
     // [SerializeField] GameObject checkpointItemObject;
     // [SerializeField] Transform checkpointSpawnpoint;
