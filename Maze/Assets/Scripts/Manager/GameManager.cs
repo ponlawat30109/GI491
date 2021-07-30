@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public int keyItemCount;
     public int currentKeyItem;
     public AudioSource _audioSource; //Sound 
-    
+
     void Awake()
     {
         instance = this;
@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
         // SpawnPlayer();
         HPCheck();
         KeyItemCheck();
+
+        Cheat();
 
         // DeployCheckpoint();
     }
@@ -113,6 +115,25 @@ public class GameManager : MonoBehaviour
                     SpawnPlayer(player.GetComponentInChildren<PlayerAction>().checkpointPosition);
                 }
             }
+        }
+    }
+
+    void Cheat()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            currentKeyItem += 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            PlayerStatus.instance.checkPointItem = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            PlayerStatus.instance.maxHP = 10000000;
+            PlayerStatus.instance.hp = PlayerStatus.instance.maxHP;
         }
     }
 
