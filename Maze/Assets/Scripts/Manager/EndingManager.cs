@@ -12,7 +12,7 @@ public class EndingManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             SceneManager.LoadScene(0);
         }
