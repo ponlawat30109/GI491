@@ -135,6 +135,11 @@ public class GameManager : MonoBehaviour
             PlayerStatus.instance.maxHP = 10000000;
             PlayerStatus.instance.hp = PlayerStatus.instance.maxHP;
         }
+
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     // void CheckpointPosition()
