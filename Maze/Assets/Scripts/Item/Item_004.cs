@@ -13,7 +13,7 @@ public class Item_004 : MonoBehaviour //ThornTrap
             if (PlayerStatus.instance != null)
             {
                 PlayerStatus.instance._audioSource.PlayOneShot(soundThornTrap);
-                PlayerStatus.instance.hp -= 10 * Time.deltaTime;
+                PlayerStatus.instance.hp -= 20 * Time.deltaTime;
             }
         }
     }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1493297309}
   - component: {fileID: 1493297308}
   - component: {fileID: -6750115760918981839}
+  - component: {fileID: 6837283214661933938}
   m_Layer: 0
   m_Name: MedKit
   m_TagString: Item
@@ -226,3 +227,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!122 &6837283214661933938
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364968472515937621}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4287037400
+  m_Size: 1

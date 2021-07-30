@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 2827311138977215595}
   - component: {fileID: 5165113510884018301}
   - component: {fileID: 6803267224247061415}
+  - component: {fileID: 8756975919110169500}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Untagged
@@ -267,7 +268,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: cf5b5fc6f34355342b495a8da0e9d7e6, type: 3}
+  - {fileID: 2100000, guid: e53c449a395ba6241b720f07ee411f75, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -289,6 +290,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!122 &8756975919110169500
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8970383246318577557}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4282931562
+  m_Size: 1.2
 --- !u!1 &9118967977164254244
 GameObject:
   m_ObjectHideFlags: 0
