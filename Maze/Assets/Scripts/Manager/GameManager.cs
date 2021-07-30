@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public int keyItemCount;
     public int currentKeyItem;
     public AudioSource _audioSource; //Sound 
+    
     void Awake()
     {
         instance = this;

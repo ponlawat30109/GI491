@@ -14,6 +14,7 @@ public class Item_003 : MonoBehaviour //Checkpoint
             {
                 PlayerStatus.instance._audioSource.PlayOneShot(soundCheckpoint);
                 PlayerStatus.instance.checkPointItem = true;
+                PlayerStatus.instance.isCheckpoint = false;
             }
 
             Destroy(gameObject);
