@@ -2081,7 +2081,7 @@ GameObject:
   - component: {fileID: 818516539}
   - component: {fileID: 818516538}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4573,7 +4573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introMenu: {fileID: 1010875084}
   mainMenu: {fileID: 4859723}
-  playerSelect: {fileID: 962709499}
+  playerSelect: {fileID: 818516538}
   playerSelectName: 
   playerButtonList:
   - {fileID: 166525544}
